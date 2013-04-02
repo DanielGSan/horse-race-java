@@ -69,41 +69,31 @@ public class Caballo extends Thread
 
 	public void run() 
     {
-        try {
-        	while(posicion < 40)
-        	{
-        		if(this.ratio <= 1.50){
-        			sleep((int)(Math.random()*1400));
-        		}
-        		else if (this.ratio > 1.50 & this.ratio <= 2.00){
-        			sleep((int)(Math.random()*1500));
-        		}
-        		else if (this.ratio > 2.00 & this.ratio <= 2.50){
-        			sleep((int)(Math.random()*1600));
-        		}
-        		else if (this.ratio > 2.50 & this.ratio <= 3.00){
-        			sleep((int)(Math.random()*1700));
-        		}
-        		else if (this.ratio > 3.00 & this.ratio <= 3.50){
-        			sleep((int)(Math.random()*1800));
-        		}
-        		else if (this.ratio > 3.50){
-        			sleep((int)(Math.random()*2000));
-        		}
-        		
-        		posicion++;
-        		
-        		//avance = ((int)(Math.random()*5));
-        		//avance = 1;
+        int duerme = 0;
 
-        		/*if((posicion + avance) > 30)
-        		{
-        			sleep((int)(Math.random()*300));	
-        		}
-        		else
-        		{
-        			
-        		}*/
+        if(this.ratio <= 1.50){
+            duerme = 1400;
+        }
+        else if (this.ratio > 1.50 & this.ratio <= 2.00){
+            duerme = 1500;;
+        }
+        else if (this.ratio > 2.00 & this.ratio <= 2.50){
+            duerme = 1600;
+        }
+        else if (this.ratio > 2.50 & this.ratio <= 3.00){
+            duerme = 1700;
+        }
+        else if (this.ratio > 3.00 & this.ratio <= 3.50){
+            duerme = 1800;
+        }
+        else if (this.ratio > 3.50){
+            duerme = 2000;
+        }
+        try {
+        	while(posicion < 50)
+        	{
+                sleep((int)(Math.random()*duerme));
+        		posicion++;
         	}	
         } 
         catch( InterruptedException e ) 
