@@ -12,7 +12,7 @@ public class Carrera
 	//private Caballo c1;
 	//private Caballo c2;
 	private Cronometro cron;
-	
+
 	public Carrera()
 	{
 		jugadores = new ArrayList();
