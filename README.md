@@ -1,4 +1,3 @@
 CarreraCaballos
 ===============
-Esto es un proyecto sobre una carrera de caballos en java.
-Se pueden realizar apuestas.
+Proyecto sobre un sistema de carreras de caballos con apuestas en java - modo consola
