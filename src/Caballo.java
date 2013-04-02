@@ -1,6 +1,6 @@
 public class Caballo extends Thread
 {
-	private String nombre;
+    private String nombre;
     private int avance;
     private int posicion;
     private float ratio;
