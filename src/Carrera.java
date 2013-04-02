@@ -31,15 +31,28 @@ public class Carrera
 		carrera.crearJugadores();
 		do{
 			carrera.apostar();
-			
-			carrera.empezar();
+
+
+            try {
+                Thread.sleep(1500);
+                System.out.println("\nLos caballos se van colocando en la linea de salida");
+                Thread.sleep(1500);
+                System.out.println("La carrera comenzara en 10 segundos\n");
+                Thread.sleep(10000);
+                System.out.println("SUERTE!! BAAAAANNNNNNG!!!!\n");
+                Thread.sleep(1500);
+            } catch (InterruptedException e) {
+                e.printStackTrace();  //To change body of catch statement use File | Settings | File Templates.
+            }
+
+            carrera.empezar();
 			
 			carrera.repartirPremios();
 			
 			
 
 			try {
-				 	System.out.print("Otra carrera? (S/N)");
+				 	System.out.print("\nOtra carrera? (S/N)");
 				 	respuesta = teclado.readLine();
 			} 
 			catch (IOException e) {
@@ -48,11 +61,91 @@ public class Carrera
 			
 		}while(respuesta.equalsIgnoreCase("s"));
 		
-		System.out.print("Gracias por usar las apuestas 'BetDaniel'");
+		System.out.print("\nGracias por usar las apuestas 'BetDaniel'");
 		
 		
 	}
-		
+
+    //Creacion de jugadores
+
+
+    public void crearJugadores()
+    {
+        Jugador juga;
+
+        String linea = null;
+        int nJugadores = leerInt("Introducir numero de jugadores: ");
+
+        for(int i=0; i<nJugadores; i++)
+        {
+            juga = new Jugador();
+            juga.leerDatos();
+            jugadores.add(juga);
+            System.out.println("Jugador "+(i+1)+ " creado\n");
+        }
+    }
+
+
+    //Apuestas de los jugadores
+
+    public void apostar()
+    {
+        caballos.clear();
+        Caballo caba;
+        boolean wrong;
+        float apuesta;
+
+        int nCaballos = (int)(Math.random()*5 + 2);
+        System.out.println("\n\nEn esta carrera hay "+nCaballos+" caballos");
+
+        for(int i=0; i<nCaballos; i++){
+            caba = new Caballo("Caballo "+(i+1));
+            caba.setRatio((float)(Math.random()*3+1));
+            caballos.add(caba);
+            System.out.printf("El " + caba.getNombre() + " se paga a " + "%.2f\n",caba.getRatio());
+        }
+
+
+        for(int i=0; i<jugadores.size(); i++){
+            int c = 0;
+
+            if(jugadores.get(i).getSaldo() <= 0){
+                System.out.println("Tu saldo es de 0 o menos Euros y no podras participar.");
+            }
+            else{
+
+                do{
+                    wrong = false;
+                    c = leerInt("\n" + jugadores.get(i).getNombre()+ " introduce el numero del caballo ganador: ");
+
+                    if(c > nCaballos || c == 0){
+                        System.out.println("Has introducido un caballo erroneo\n");
+                        wrong = true;
+                    }
+                }while(wrong);
+
+                System.out.println("Tu saldo es de " + jugadores.get(i).getSaldo()+ " euros.");
+
+                do{
+                    wrong = false;
+                    apuesta = leerFloat("Introduce dinero a apostar al caballo "+(c)+": ");
+
+                    if(apuesta > jugadores.get(i).getSaldo() || apuesta <= 0){
+                        System.out.println("Has apostado mas de lo que tienes o has puesto 0 o menos.\n");
+                        wrong = true;
+                    }
+
+                }while(wrong);
+                jugadores.get(i).setApuesta(apuesta);
+
+            }
+
+            jugadores.get(i).setCaballo(c-1);
+
+        }
+    }
+
+
     public void empezar () 
     {
     	cron = new Cronometro();
@@ -106,79 +199,8 @@ public class Carrera
     	cron.stop();
         System.out.println("\nLa carrera ha durado: "+cron.getTime() + "\n");
         
-    } 
-    
-    public void crearJugadores()
-    {
-    	Jugador juga;
-    	
-    	String linea = null;
-    	int nJugadores = leerInt("Introducir numero de jugadores: ");
-
-		for(int i=0; i<nJugadores; i++)
-		{
-			juga = new Jugador();
-			juga.leerDatos();
-			jugadores.add(juga);
-			System.out.println("Jugador "+(i+1)+ " creado\n");
-		}
     }
- 
-    public void apostar()
-    {
-    	caballos.clear();
-    	Caballo caba;
-    	boolean wrong;
-    	float apuesta;
-    	
-    	int nCaballos = (int)(Math.random()*5 + 2);
-    	System.out.println("En esta carrera hay "+nCaballos+" caballos");
-    	
-    	for(int i=0; i<nCaballos; i++){
-			caba = new Caballo("Caballo "+(i+1));
-			caba.setRatio((float)(Math.random()*3+1));
-			caballos.add(caba);
-			System.out.printf("El " + caba.getNombre() + " se paga a " + "%.2f\n",caba.getRatio());
-		}
-    	
 
-    	for(int i=0; i<jugadores.size(); i++){
-    		int c = 0;
-    		do{
-    			wrong = false;
-    			c = leerInt("\n" + jugadores.get(i).getNombre()+ " introduce el numero del caballo ganador: ");
-    			
-    			if(c > nCaballos || c == 0){
-    				System.out.println("Has introducido un caballo erroneo\n");
-    				wrong = true;	
-    			}
-    		}while(wrong);
-    		
-    		jugadores.get(i).setCaballo(c-1);
-    		
-    		
-    		if(jugadores.get(i).getSaldo() <= 0){
-    			System.out.println("Tu saldo es de 0 o menos Euros y no podras participar.");
-    		}
-    		else{
-    			System.out.println("Tu saldo es de " + jugadores.get(i).getSaldo()+ " euros.");
-        		
-        		do{
-        			wrong = false;
-        			apuesta = leerFloat("Introduce dinero a apostar al caballo "+(c)+": ");
-        			
-        			if(apuesta > jugadores.get(i).getSaldo() || apuesta <= 0){
-        				System.out.println("Has apostado mas de lo que tienes o has puesto 0 o menos.\n");
-        				wrong = true;	
-        			}
-    	
-        		}while(wrong);
-        		jugadores.get(i).setApuesta(apuesta);
-    			
-    		}
-    	}
-    } 
-    
     public void repartirPremios()
     {
     	int ganador = 0;
