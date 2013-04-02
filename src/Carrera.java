@@ -233,10 +233,11 @@ public class Carrera
 	    			System.out.println("Saldo total de " + jugadores.get(i).getNombre() + " " + jugadores.get(i).getSaldo() + " euros.\n");
 	    	}
 	    	else{
-	    		System.out.println(jugadores.get(i).getNombre() + " aposto por el caballo " + (jugadores.get(i).getCaballo()+1) + " y no ha ganado.");
-	    	}
-
-    	}
+                if(jugadores.get(i).getCaballo() != 0){
+	    		    System.out.println(jugadores.get(i).getNombre() + " aposto por el caballo " + (jugadores.get(i).getCaballo()+1) + " y no ha ganado.");
+                }
+    	    }
+        }
     }
 
 
