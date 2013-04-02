@@ -5,8 +5,6 @@ import java.io.InputStreamReader;
 import java.util.ArrayList;
 
 
-//probando github a ver si funciona bien
-
 public class Carrera 
 {
 	private ArrayList <Jugador> jugadores;
@@ -66,7 +64,7 @@ public class Carrera
 		
 	}
 
-    //Creacion de jugadores
+    // Creacion de jugadores
 
 
     public void crearJugadores()
@@ -86,7 +84,7 @@ public class Carrera
     }
 
 
-    //Apuestas de los jugadores
+    // Apuestas de los jugadores
 
     public void apostar()
     {
@@ -145,6 +143,7 @@ public class Carrera
         }
     }
 
+    // Empieza la carrera, cronometro en marcha
 
     public void empezar () 
     {
@@ -152,7 +151,7 @@ public class Carrera
     	int contador = 0;
     	int lastpos = 0;
     	
-        // Arrancamos los caballos
+        // Arrancamos los caballos  y el cronometro
         cron.start();
       
         for(int i=0; i<caballos.size(); i++){
@@ -161,26 +160,26 @@ public class Carrera
     
        contador = caballosVivos();
         
-        // Esperamos a que el primero acabe
+        // Esperamos a que el ganador acabe, mientras no acabe ninguno seguimos dentro del while
     	while (contador == caballos.size()){
 
     		int totPos;
 
-    			totPos = totalPosiciones();
+    		totPos = totalPosiciones();
         		
-    			if(lastpos != totPos){
-    				for (int i=0; i<30; i++){
-    					System.out.println();
-    				}
-    				
-    				for(int i=0; i<caballos.size(); i++){
-    					System.out.print("\n"+caballos.get(i).getNombre()+": ");
-    					for(int j=0; j<caballos.get(i).getPosicion(); j++)
-    		        	{
-    		        		System.out.print("*");
-    		        	}
-            		}	
+    		if(lastpos != totPos){
+    			for (int i=0; i<30; i++){
+    				System.out.println();
     			}
+    				
+    			for(int i=0; i<caballos.size(); i++){
+    				System.out.print("\n"+caballos.get(i).getNombre()+": ");
+    				for(int j=0; j<caballos.get(i).getPosicion(); j++)
+    		        {
+    		        	System.out.print("*");
+    		        }
+            	}
+    		}
     			
     		lastpos = totalPosiciones();
     		
@@ -200,6 +199,8 @@ public class Carrera
         System.out.println("\nLa carrera ha durado: "+cron.getTime() + "\n");
         
     }
+
+    // Reparto de premios a los ganadores.
 
     public void repartirPremios()
     {
@@ -237,6 +238,9 @@ public class Carrera
 
     	}
     }
+
+
+    // Ver en que posicion esta cada caballo
    
     public int totalPosiciones(){
     	
@@ -249,7 +253,10 @@ public class Carrera
 		
 		return totPos;
     }
-    
+
+
+    // Ver que caballo esta vivo
+
     public int caballosVivos(){
     	int contador = 0;
     	
@@ -261,7 +268,9 @@ public class Carrera
     	
     	return contador;
     }
-    
+
+
+    // Lectura de datos
     
     public int leerInt(String texto)
     {
