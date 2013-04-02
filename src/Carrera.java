@@ -44,6 +44,8 @@ public class Carrera
             carrera.empezar();
 			
 			carrera.repartirPremios();
+
+            carrera.borrarApuestas();
 			
 			
 
@@ -237,6 +239,15 @@ public class Carrera
     	}
     }
 
+
+    // Reiniciar apuestas de todos los jugadores
+
+    public void borrarApuestas(){
+        for(int i=0; i<jugadores.size(); i++){
+           jugadores.get(i).setCaballo(0);
+
+        }
+    }
 
     // Ver en que posicion esta cada caballo
    
