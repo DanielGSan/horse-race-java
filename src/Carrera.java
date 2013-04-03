@@ -233,7 +233,7 @@ public class Carrera
 	    			System.out.println("Saldo total de " + jugadores.get(i).getNombre() + " " + jugadores.get(i).getSaldo() + " euros.\n");
 	    	}
 	    	else{
-                if(jugadores.get(i).getCaballo() != 0){
+                if(jugadores.get(i).getCaballo() != -1){
 	    		    System.out.println(jugadores.get(i).getNombre() + " aposto por el caballo " + (jugadores.get(i).getCaballo()+1) + " y no ha ganado.");
                 }
     	    }
@@ -245,7 +245,7 @@ public class Carrera
 
     public void borrarApuestas(){
         for(int i=0; i<jugadores.size(); i++){
-           jugadores.get(i).setCaballo(0);
+           jugadores.get(i).setCaballo(-1);
 
         }
     }
