@@ -56,6 +56,7 @@ public class Caballo extends Thread
 
 	public void setRatio(float ratio) 
 	{
+        ratio = (float)(Math.round(ratio*100.0)/100.0);
 		this.ratio = ratio;
 	}
 

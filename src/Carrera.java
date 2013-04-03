@@ -4,12 +4,6 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
 
-
-
-// http://hacerpaginaswebconphp.com/control-de-sesiones-en-php/
-// http://www.desarrolloweb.com/manuales/56/
-// http://www.segelsoft.com/2011/08/10/user-agent-switcher-complemento-para-simular-otro-navegador-en-firefox/
-
 public class Carrera 
 {
 	private ArrayList <Jugador> jugadores;
@@ -158,7 +152,7 @@ public class Carrera
     	
         // Arrancamos los caballos  y el cronometro
         cron.start();
-      
+
         for(int i=0; i<caballos.size(); i++){
 			caballos.get(i).start();
 		}
