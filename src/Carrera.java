@@ -8,6 +8,7 @@ import java.util.ArrayList;
 
 // http://hacerpaginaswebconphp.com/control-de-sesiones-en-php/
 // http://www.desarrolloweb.com/manuales/56/
+// http://www.segelsoft.com/2011/08/10/user-agent-switcher-complemento-para-simular-otro-navegador-en-firefox/
 
 public class Carrera 
 {
