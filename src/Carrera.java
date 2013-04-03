@@ -5,6 +5,10 @@ import java.io.InputStreamReader;
 import java.util.ArrayList;
 
 
+
+// http://hacerpaginaswebconphp.com/control-de-sesiones-en-php/
+// http://www.desarrolloweb.com/manuales/56/
+
 public class Carrera 
 {
 	private ArrayList <Jugador> jugadores;
@@ -246,7 +250,6 @@ public class Carrera
     public void borrarApuestas(){
         for(int i=0; i<jugadores.size(); i++){
            jugadores.get(i).setCaballo(-1);
-
         }
     }
 
