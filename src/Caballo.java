@@ -67,7 +67,7 @@ public class Caballo extends Thread
 		this.ganador = ganador;
 	}
 
-	public void run() 
+	public void run()
     {
         int duerme = 0;
 
@@ -95,9 +95,9 @@ public class Caballo extends Thread
         	{
                 sleep((int)(Math.random()*duerme));
         		posicion++;
-        	}	
-        } 
-        catch( InterruptedException e ) 
+        	}
+        }
+        catch( InterruptedException e )
         {
             ;
         }
