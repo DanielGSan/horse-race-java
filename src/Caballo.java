@@ -76,19 +76,19 @@ public class Caballo extends Thread
             duerme = 1400;
         }
         else if (this.ratio > 1.50 & this.ratio <= 2.00){
-            duerme = 1500;
+            duerme = 1480;
         }
         else if (this.ratio > 2.00 & this.ratio <= 2.50){
-            duerme = 1600;
+            duerme = 1520;
         }
         else if (this.ratio > 2.50 & this.ratio <= 3.00){
-            duerme = 1699;
+            duerme = 1590;
         }
         else if (this.ratio > 3.00 & this.ratio <= 3.50){
-            duerme = 1750;
+            duerme = 1630;
         }
         else if (this.ratio > 3.50){
-            duerme = 1850;
+            duerme = 1690;
         }
 
         try {

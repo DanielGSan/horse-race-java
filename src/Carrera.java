@@ -107,7 +107,7 @@ public class Carrera
             int c = 0;
 
             if(jugadores.get(i).getSaldo() <= 0){
-                System.out.println("Tu saldo es de 0 o menos Euros y no podras participar.");
+                System.out.println(jugadores.get(i).getNombre() + " tu saldo es de 0 o menos Euros y no podras participar.");
             }
             else{
 
