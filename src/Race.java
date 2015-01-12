@@ -1,27 +1,29 @@
+
+
 import java.io.BufferedReader;
 import java.io.DataInputStream;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
 
-public class Carrera 
+public class Race 
 {
-	private ArrayList <Jugador> jugadores;
-	private ArrayList <Caballo> caballos;
-	private Cronometro cron;
+	private ArrayList <Player> jugadores;
+	private ArrayList <Horse> caballos;
+	private Timer cron;
 
-	public Carrera()
+	public Race()
 	{
 		jugadores = new ArrayList();
 		caballos = new ArrayList();
-        cron = new Cronometro();
+        cron = new Timer();
 	}
 	
 	public static void main(String[] args) 
 	{
 		BufferedReader teclado = new BufferedReader (new InputStreamReader(System.in));
 		String respuesta = null;
-		Carrera carrera= new Carrera ();
+		Race carrera= new Race ();
 		
 		carrera.crearJugadores();
 		do{
@@ -68,14 +70,14 @@ public class Carrera
 
     public void crearJugadores()
     {
-        Jugador juga;
+        Player juga;
 
         String linea = null;
         int nJugadores = leerInt("Introducir numero de jugadores: ");
 
         for(int i=0; i<nJugadores; i++)
         {
-            juga = new Jugador();
+            juga = new Player();
             juga.leerDatos();
             jugadores.add(juga);
             System.out.println("Jugador "+(i+1)+ " creado\n");
@@ -88,7 +90,7 @@ public class Carrera
     public void apostar()
     {
         caballos.clear();
-        Caballo caba;
+        Horse caba;
         boolean wrong;
         float apuesta;
 
@@ -96,7 +98,7 @@ public class Carrera
         System.out.println("\n\nEn esta carrera hay "+nCaballos+" caballos");
 
         for(int i=0; i<nCaballos; i++){
-            caba = new Caballo("Caballo "+(i+1));
+            caba = new Horse("Caballo "+(i+1));
             caba.setRatio((float)(Math.random()*3+1));
             caballos.add(caba);
             System.out.printf("El " + caba.getNombre() + " se paga a " + "%.2f\n",caba.getRatio());
@@ -146,7 +148,7 @@ public class Carrera
 
     public void empezar () 
     {
-    	cron = new Cronometro();
+    	cron = new Timer();
     	int contador = 0;
     	int lastpos = 0;
     	

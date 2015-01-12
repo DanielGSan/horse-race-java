@@ -1,33 +1,35 @@
-public class Caballo extends Thread
+
+
+public class Horse extends Thread
 {
-    private String nombre;
+    private String name;
     private int avance;
-    private int posicion;
+    private int position;
     private float ratio;
-    private boolean ganador;
+    private boolean winner;
  
-    public Caballo() 
+    public Horse() 
     {
-    	this.nombre = "";
+    	this.name = "";
     	this.avance = 0;
-    	this.posicion = 0;
+    	this.position = 0;
     	this.ratio = (float) 0.0;
-    	this.ganador = false;
+    	this.winner = false;
     }
     
-    public Caballo(String s) 
+    public Horse(String s) 
     {
-       this.nombre = s;
+       this.name = s;
     }
 
     public String getNombre() 
     {
-		return nombre;
+		return name;
 	}
 
 	public void setNombre(String nombre) 
 	{
-		this.nombre = nombre;
+		this.name = nombre;
 	}
 
 	public int getAvance() 
@@ -42,12 +44,12 @@ public class Caballo extends Thread
 
 	public int getPosicion() 
 	{
-		return posicion;
+		return position;
 	}
 
 	public void setPosicion(int posicion)
 	{
-		this.posicion = posicion;
+		this.position = posicion;
 	}
 	
     public float getRatio() {
@@ -61,11 +63,11 @@ public class Caballo extends Thread
 	}
 
 	public boolean isGanador() {
-		return ganador;
+		return winner;
 	}
 
 	public void setGanador(boolean ganador) {
-		this.ganador = ganador;
+		this.winner = ganador;
 	}
 
 	public void run()
@@ -92,10 +94,10 @@ public class Caballo extends Thread
         }
 
         try {
-        	while(posicion < 50)
+        	while(position < 50)
         	{
                 sleep((int)(Math.random()*duerme));
-        		posicion++;
+        		position++;
         	}
         }
         catch( InterruptedException e )

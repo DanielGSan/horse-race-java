@@ -1,4 +1,6 @@
-public class Cronometro  extends Thread {
+
+
+public class Timer  extends Thread {
 	
 	private int segundos;
 	

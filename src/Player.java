@@ -2,20 +2,20 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 
-public class Jugador
+public class Player
 {
 	private String nombre;
 	private float saldo;
 	private int caballo;
 	private float apuesta;
 	
-	public Jugador() 
+	public Player() 
 	{
 		this.nombre = "";
 		this.saldo = (float) 0.0;
 	}
 	
-	public Jugador(String nombre, float saldo) 
+	public Player(String nombre, float saldo) 
 	{
 		this.nombre = nombre;
 		this.saldo = saldo;
