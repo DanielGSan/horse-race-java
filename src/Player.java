@@ -67,7 +67,7 @@ public class Player
 		BufferedReader teclado = new BufferedReader (new InputStreamReader(System.in));
 
 		try {
-			 	System.out.print("Introduce tu nombre: ");
+			 	System.out.print("Enter your name: ");
 			 	setNombre(teclado.readLine());
 			 	setSaldo(10);
 		} 
