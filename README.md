@@ -1,6 +1,9 @@
-Horse racing betting
-===============
-Project about a Horse racing betting in java - console mode
+# Horse race with bets (java version)
 
-Proyecto sobre un sistema de carreras de caballos con apuestas en java - modo consola
+This README would normally document whatever steps are necessary to get your
+application up and running.
 
+## What is this repository for?
+
+Project for the school, developed in Java (not senior developer), based in a 'horse races'
+with possibility to create players and bets in every race.
